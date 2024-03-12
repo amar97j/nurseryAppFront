@@ -9,22 +9,25 @@ import UIKit
 import Eureka
 
 class SignInViewController: FormViewController {
-
+    var token: String?
+    
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .white
         setupForm()
     }
-
+    
     private func setupForm() {
-
+        
         form +++ Section("Sign In")
-
+        
         <<< TextRow() { row in
-            row.title = "📧 Email"
+            row.title = "📧 username"
             row.placeholder = "Enter your email"
-            row.tag = "email"
+            row.tag = "username"
             row.add(rule: RuleRequired())
             row.validationOptions = .validatesOnChange
             row.cellUpdate { cell, row in
@@ -53,42 +56,41 @@ class SignInViewController: FormViewController {
             }
         }
     }
-
+    
     @objc func submitTapped() {
         let errors = form.validate()
         guard errors.isEmpty else {
             presentAlertWithTitle(title: "🆘", message: "One of the text fields is empty.")
             return
         }
-
-        guard let emailRow: TextRow = form.rowBy(tag: "email"),
+        
+        guard let usernameRow: TextRow = form.rowBy(tag: "username"),
               let passwordRow: PasswordRow = form.rowBy(tag: "password") else {
             return
         }
-
-        let email = emailRow.value ?? ""
+        
+        let username = usernameRow.value ?? ""
         let password = passwordRow.value ?? ""
-
-        let user = User(name: "", username: "", email: email, password: password)
-
-        NetworkManager.shared.signup(user: user) { result in
+        
+        let user = User(name: "", username: username, email: "", password: password)
+        
+        NetworkManager.shared.signIn(user: user) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let tokenResponse):
                     print("Token:", tokenResponse.token)
-
-                
                     let registerVC = RegisterChildViewController()
                     registerVC.token = tokenResponse.token
-                    self.navigationController?.pushViewController(registerVC, animated: true)
-
+                    registerVC.modalPresentationStyle = .pageSheet
+                    self.present(registerVC, animated: true)
                 case .failure(let error):
                     print("Error:", error)
+                    print(error.localizedDescription)
                 }
             }
         }
     }
-
+    
     private func presentAlertWithTitle(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))

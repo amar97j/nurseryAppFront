@@ -10,4 +10,15 @@ import Foundation
 
 struct TokenResponse: Codable {
     let token: String
+    let username: String
+    let role: String
 }
+
+
+//struct SignUpResponse: Codable {
+//    
+//    let resposne: String
+//    
+//}
+
+
