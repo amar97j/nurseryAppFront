@@ -17,6 +17,7 @@
 		09D1D0F72B9F14BC00091D7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1D0F32B9F14BC00091D7E /* SignInViewController.swift */; };
 		09D1D0F82B9F14BC00091D7E /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1D0EC2B9F14BC00091D7E /* TokenResponse.swift */; };
 		09D1D0F92B9F14BC00091D7E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1D0F12B9F14BC00091D7E /* SignUpViewController.swift */; };
+		09EF8C8D2BA049B40036BD01 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EF8C8C2BA049B40036BD01 /* Child.swift */; };
 		4165EB042B9F1A8D00C494DD /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB032B9F1A8D00C494DD /* Eureka */; };
 		4165EB072B9F1AA800C494DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB062B9F1AA800C494DD /* SnapKit */; };
 		4165EB092B9F1AA800C494DD /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB082B9F1AA800C494DD /* SnapKit-Dynamic */; };
@@ -39,6 +40,7 @@
 		09D1D0F12B9F14BC00091D7E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		09D1D0F22B9F14BC00091D7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09D1D0F32B9F14BC00091D7E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		09EF8C8C2BA049B40036BD01 /* Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterChildViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 		09D1D0EB2B9F14BC00091D7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				09EF8C8C2BA049B40036BD01 /* Child.swift */,
 				09D1D0EC2B9F14BC00091D7E /* TokenResponse.swift */,
 				09D1D0ED2B9F14BC00091D7E /* User.swift */,
 			);
@@ -218,6 +221,7 @@
 				09D1D0C92B9F144700091D7E /* AppDelegate.swift in Sources */,
 				09D1D0F92B9F14BC00091D7E /* SignUpViewController.swift in Sources */,
 				09D1D0F62B9F14BC00091D7E /* User.swift in Sources */,
+				09EF8C8D2BA049B40036BD01 /* Child.swift in Sources */,
 				09D1D0CB2B9F144700091D7E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
