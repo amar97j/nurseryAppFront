@@ -9,5 +9,10 @@ import Foundation
 struct Child: Codable {
     let name: String
     let age: String
-    let caseId: Int
+    let caseId: [ChildCaseId]
+}
+
+struct ChildCaseId : Codable{
+    let id : Int
+    let name: String
 }

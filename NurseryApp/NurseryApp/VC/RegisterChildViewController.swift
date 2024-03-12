@@ -16,11 +16,11 @@ class RegisterChildViewController: FormViewController {
 
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.tableView.backgroundColor = .white
         setupBackgroundImage()
         setupBlurBackground()
-        super.viewDidLoad()
-        
         
         form +++ Section("Child Information")
             <<< TextRow() {
