@@ -17,12 +17,13 @@
 		09D1D0F72B9F14BC00091D7E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1D0F32B9F14BC00091D7E /* SignInViewController.swift */; };
 		09D1D0F82B9F14BC00091D7E /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1D0EC2B9F14BC00091D7E /* TokenResponse.swift */; };
 		09D1D0F92B9F14BC00091D7E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D1D0F12B9F14BC00091D7E /* SignUpViewController.swift */; };
-		09D1D0FC2B9F14D100091D7E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09D1D0FB2B9F14D100091D7E /* SnapKit */; };
-		09D1D0FE2B9F14D100091D7E /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 09D1D0FD2B9F14D100091D7E /* SnapKit-Dynamic */; };
-		09D1D1012B9F14D800091D7E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 09D1D1002B9F14D800091D7E /* Kingfisher */; };
-		09D1D1042B9F14DE00091D7E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 09D1D1032B9F14DE00091D7E /* Alamofire */; };
-		09D1D1062B9F14DE00091D7E /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 09D1D1052B9F14DE00091D7E /* AlamofireDynamic */; };
-		09D1D1092B9F14E400091D7E /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 09D1D1082B9F14E400091D7E /* Eureka */; };
+		4165EB042B9F1A8D00C494DD /* Eureka in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB032B9F1A8D00C494DD /* Eureka */; };
+		4165EB072B9F1AA800C494DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB062B9F1AA800C494DD /* SnapKit */; };
+		4165EB092B9F1AA800C494DD /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB082B9F1AA800C494DD /* SnapKit-Dynamic */; };
+		4165EB0C2B9F1AB400C494DD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB0B2B9F1AB400C494DD /* Alamofire */; };
+		4165EB0E2B9F1AB400C494DD /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB0D2B9F1AB400C494DD /* AlamofireDynamic */; };
+		4165EB112B9F1ACB00C494DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB102B9F1ACB00C494DD /* Kingfisher */; };
+		4165EB132B9F1B1400C494DD /* RegisterChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		09D1D0F12B9F14BC00091D7E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		09D1D0F22B9F14BC00091D7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09D1D0F32B9F14BC00091D7E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterChildViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +47,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09D1D1012B9F14D800091D7E /* Kingfisher in Frameworks */,
-				09D1D1042B9F14DE00091D7E /* Alamofire in Frameworks */,
-				09D1D1062B9F14DE00091D7E /* AlamofireDynamic in Frameworks */,
-				09D1D0FC2B9F14D100091D7E /* SnapKit in Frameworks */,
-				09D1D0FE2B9F14D100091D7E /* SnapKit-Dynamic in Frameworks */,
-				09D1D1092B9F14E400091D7E /* Eureka in Frameworks */,
+				4165EB112B9F1ACB00C494DD /* Kingfisher in Frameworks */,
+				4165EB042B9F1A8D00C494DD /* Eureka in Frameworks */,
+				4165EB0C2B9F1AB400C494DD /* Alamofire in Frameworks */,
+				4165EB0E2B9F1AB400C494DD /* AlamofireDynamic in Frameworks */,
+				4165EB072B9F1AA800C494DD /* SnapKit in Frameworks */,
+				4165EB092B9F1AA800C494DD /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 				09D1D0F32B9F14BC00091D7E /* SignInViewController.swift */,
 				09D1D0F12B9F14BC00091D7E /* SignUpViewController.swift */,
 				09D1D0F22B9F14BC00091D7E /* ViewController.swift */,
+				4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -140,12 +143,12 @@
 			);
 			name = NurseryApp;
 			packageProductDependencies = (
-				09D1D0FB2B9F14D100091D7E /* SnapKit */,
-				09D1D0FD2B9F14D100091D7E /* SnapKit-Dynamic */,
-				09D1D1002B9F14D800091D7E /* Kingfisher */,
-				09D1D1032B9F14DE00091D7E /* Alamofire */,
-				09D1D1052B9F14DE00091D7E /* AlamofireDynamic */,
-				09D1D1082B9F14E400091D7E /* Eureka */,
+				4165EB032B9F1A8D00C494DD /* Eureka */,
+				4165EB062B9F1AA800C494DD /* SnapKit */,
+				4165EB082B9F1AA800C494DD /* SnapKit-Dynamic */,
+				4165EB0B2B9F1AB400C494DD /* Alamofire */,
+				4165EB0D2B9F1AB400C494DD /* AlamofireDynamic */,
+				4165EB102B9F1ACB00C494DD /* Kingfisher */,
 			);
 			productName = NurseryApp;
 			productReference = 09D1D0C52B9F144700091D7E /* NurseryApp.app */;
@@ -176,10 +179,10 @@
 			);
 			mainGroup = 09D1D0BC2B9F144700091D7E;
 			packageReferences = (
-				09D1D0FA2B9F14D100091D7E /* XCRemoteSwiftPackageReference "SnapKit" */,
-				09D1D0FF2B9F14D800091D7E /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				09D1D1022B9F14DE00091D7E /* XCRemoteSwiftPackageReference "Alamofire" */,
-				09D1D1072B9F14E400091D7E /* XCRemoteSwiftPackageReference "Eureka" */,
+				4165EB022B9F1A8C00C494DD /* XCRemoteSwiftPackageReference "Eureka" */,
+				4165EB052B9F1AA800C494DD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4165EB0A2B9F1AB400C494DD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4165EB0F2B9F1ACB00C494DD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 09D1D0C62B9F144700091D7E /* Products */;
 			projectDirPath = "";
@@ -211,6 +214,7 @@
 				09D1D0F82B9F14BC00091D7E /* TokenResponse.swift in Sources */,
 				09D1D0F52B9F14BC00091D7E /* NetworkManager.swift in Sources */,
 				09D1D0F72B9F14BC00091D7E /* SignInViewController.swift in Sources */,
+				4165EB132B9F1B1400C494DD /* RegisterChildViewController.swift in Sources */,
 				09D1D0C92B9F144700091D7E /* AppDelegate.swift in Sources */,
 				09D1D0F92B9F14BC00091D7E /* SignUpViewController.swift in Sources */,
 				09D1D0F62B9F14BC00091D7E /* User.swift in Sources */,
@@ -356,14 +360,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NurseryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -371,6 +377,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = coded.NurseryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,14 +389,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NurseryApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +406,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = coded.NurseryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -427,31 +437,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		09D1D0FA2B9F14D100091D7E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-		09D1D0FF2B9F14D800091D7E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
-			};
-		};
-		09D1D1022B9F14DE00091D7E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.0;
-			};
-		};
-		09D1D1072B9F14E400091D7E /* XCRemoteSwiftPackageReference "Eureka" */ = {
+		4165EB022B9F1A8C00C494DD /* XCRemoteSwiftPackageReference "Eureka" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/xmartlabs/Eureka";
 			requirement = {
@@ -459,38 +445,62 @@
 				minimumVersion = 5.4.0;
 			};
 		};
+		4165EB052B9F1AA800C494DD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		4165EB0A2B9F1AB400C494DD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
+		};
+		4165EB0F2B9F1ACB00C494DD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		09D1D0FB2B9F14D100091D7E /* SnapKit */ = {
+		4165EB032B9F1A8D00C494DD /* Eureka */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09D1D0FA2B9F14D100091D7E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 4165EB022B9F1A8C00C494DD /* XCRemoteSwiftPackageReference "Eureka" */;
+			productName = Eureka;
+		};
+		4165EB062B9F1AA800C494DD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4165EB052B9F1AA800C494DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		09D1D0FD2B9F14D100091D7E /* SnapKit-Dynamic */ = {
+		4165EB082B9F1AA800C494DD /* SnapKit-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09D1D0FA2B9F14D100091D7E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 4165EB052B9F1AA800C494DD /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
 		};
-		09D1D1002B9F14D800091D7E /* Kingfisher */ = {
+		4165EB0B2B9F1AB400C494DD /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09D1D0FF2B9F14D800091D7E /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		09D1D1032B9F14DE00091D7E /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 09D1D1022B9F14DE00091D7E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 4165EB0A2B9F1AB400C494DD /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		09D1D1052B9F14DE00091D7E /* AlamofireDynamic */ = {
+		4165EB0D2B9F1AB400C494DD /* AlamofireDynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09D1D1022B9F14DE00091D7E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 4165EB0A2B9F1AB400C494DD /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
 		};
-		09D1D1082B9F14E400091D7E /* Eureka */ = {
+		4165EB102B9F1ACB00C494DD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 09D1D1072B9F14E400091D7E /* XCRemoteSwiftPackageReference "Eureka" */;
-			productName = Eureka;
+			package = 4165EB0F2B9F1ACB00C494DD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
