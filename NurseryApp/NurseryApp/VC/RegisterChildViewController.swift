@@ -9,12 +9,14 @@ import UIKit
 import Eureka
 
 class RegisterChildViewController: FormViewController {
+    var token: String?
     
     private var blurView: UIVisualEffectView!
     private var imageView: UIImageView!
 
     
     override func viewDidLoad() {
+        self.tableView.backgroundColor = .white
         setupBackgroundImage()
         setupBlurBackground()
         super.viewDidLoad()

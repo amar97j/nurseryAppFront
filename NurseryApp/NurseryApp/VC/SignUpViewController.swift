@@ -104,9 +104,9 @@ class SignUpViewController: FormViewController {
                     print(tokenResponse.token)
                     
               
-//                    let profileVc = ProfilePageViewController()
-//                    profileVc.token = tokenResponse.token
-//                    self.navigationController?.pushViewController(profileVc, animated: true)
+                    let registerVC = RegisterChildViewController()
+                    registerVC.token = tokenResponse.token
+                    self.navigationController?.pushViewController(registerVC, animated: true)
                     
                 case .failure(let error):
                     print(error)
