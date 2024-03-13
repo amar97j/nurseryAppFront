@@ -27,6 +27,7 @@
 		4165EB0E2B9F1AB400C494DD /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB0D2B9F1AB400C494DD /* AlamofireDynamic */; };
 		4165EB112B9F1ACB00C494DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB102B9F1ACB00C494DD /* Kingfisher */; };
 		4165EB132B9F1B1400C494DD /* RegisterChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */; };
+		AE971CFA2BA1C68E00B9A6CB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE971CF92BA1C68E00B9A6CB /* MainTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		09EF8C8E2BA194DA0036BD01 /* NurseryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseryViewController.swift; sourceTree = "<group>"; };
 		09EF8C902BA195120036BD01 /* Nursery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nursery.swift; sourceTree = "<group>"; };
 		4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterChildViewController.swift; sourceTree = "<group>"; };
+		AE971CF92BA1C68E00B9A6CB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				09D1D0F22B9F14BC00091D7E /* ViewController.swift */,
 				4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */,
 				09EF8C8E2BA194DA0036BD01 /* NurseryViewController.swift */,
+				AE971CF92BA1C68E00B9A6CB /* MainTabBarViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				09EF8C912BA195120036BD01 /* Nursery.swift in Sources */,
 				4165EB132B9F1B1400C494DD /* RegisterChildViewController.swift in Sources */,
 				09D1D0C92B9F144700091D7E /* AppDelegate.swift in Sources */,
+				AE971CFA2BA1C68E00B9A6CB /* MainTabBarViewController.swift in Sources */,
 				09D1D0F92B9F14BC00091D7E /* SignUpViewController.swift in Sources */,
 				09EF8C8F2BA194DA0036BD01 /* NurseryViewController.swift in Sources */,
 				09D1D0F62B9F14BC00091D7E /* User.swift in Sources */,

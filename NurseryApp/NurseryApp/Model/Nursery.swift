@@ -10,7 +10,7 @@ import Foundation
 struct Nursery: Codable {
     let name: String
     let location:String
-    let imageUrl:String
+    let imageUrl:String?
     let caseId: CaseId
     let areaId: AreaId
 }

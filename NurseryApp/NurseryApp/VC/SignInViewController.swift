@@ -79,10 +79,10 @@ class SignInViewController: FormViewController {
                 switch result {
                 case .success(let tokenResponse):
                     print("Token:", tokenResponse.token)
-                    let registerVC = NurseryViewController()
-                    registerVC.token = tokenResponse.token
-                    registerVC.modalPresentationStyle = .pageSheet
-                    self.present(registerVC, animated: true)
+                    let nureseryList = NurseryViewController()
+                    nureseryList.token = tokenResponse.token
+                    nureseryList.modalPresentationStyle = .fullScreen
+                    self.present(nureseryList, animated: true)
                 case .failure(let error):
                     print("Error:", error)
                     print(error.localizedDescription)
