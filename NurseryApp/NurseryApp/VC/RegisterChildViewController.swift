@@ -10,7 +10,6 @@ import Eureka
 
 class RegisterChildViewController: FormViewController {
     var token: String?
-    
     private var blurView: UIVisualEffectView!
     private var imageView: UIImageView!
     
@@ -34,17 +33,7 @@ class RegisterChildViewController: FormViewController {
                 }
             }
         }
-        <<< TextRow() {
-            $0.title = "Nationality"
-            $0.placeholder = "Enter your child's nationality"
-            $0.add(rule: RuleRequired())
-            $0.validationOptions = .validatesOnChange
-            $0.cellUpdate { cell, row in
-                if !row.isValid {
-                    cell.titleLabel?.textColor = .red
-                }
-            }
-        }
+     
         <<< IntRow() {
             $0.title = "Age"
             $0.placeholder = "Enter your child's age"
@@ -64,12 +53,7 @@ class RegisterChildViewController: FormViewController {
             $0.value = "None"
         }
         
-        +++ Section("Location")
-        <<< PickerInlineRow<String>() {
-            $0.title = "Select Governorate"
-            $0.options = ["Al Ahmadi", "Al Farwaniyah", "Al Asimah", "Hawalli", "Mubarak Al-Kabeer", "Jahra"]
-            $0.value = "Al Ahmadi"
-        }
+       
         
         +++ Section()
         <<< ButtonRow() {
