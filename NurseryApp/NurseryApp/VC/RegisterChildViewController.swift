@@ -10,7 +10,6 @@ import Eureka
 
 class RegisterChildViewController: FormViewController {
     var token: String?
-    
     private var blurView: UIVisualEffectView!
     private var imageView: UIImageView!
     
@@ -35,7 +34,8 @@ class RegisterChildViewController: FormViewController {
                 }
             }
         }
-        <<< IntRow() {
+     
+      <<< IntRow() {
             $0.title = "Age"
             $0.placeholder = "Enter your child's age"
             $0.tag = tag.age.rawValue
@@ -56,6 +56,7 @@ class RegisterChildViewController: FormViewController {
             $0.value = "None"
         }
         
+
         +++ Section()
         <<< ButtonRow() {
             $0.title = "Register"
