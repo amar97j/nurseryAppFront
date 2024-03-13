@@ -6,17 +6,20 @@
 //
 
 import Foundation
-struct Nursery: Codable{
+
+struct Nursery: Codable {
     let name: String
     let location:String
     let imageUrl:String
     let caseId: CaseId
     let areaId: AreaId
 }
+
 struct CaseId : Codable{
     let id : Int
     let name: String
 }
+
 struct AreaId : Codable{
     let id : Int
     let name: String

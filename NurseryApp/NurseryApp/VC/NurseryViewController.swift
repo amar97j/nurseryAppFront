@@ -3,6 +3,7 @@ import Alamofire
 
 class NurseryViewController: UITableViewController {
     var nurseries: [Nursery] = []
+    var token: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -10,6 +11,7 @@ class NurseryViewController: UITableViewController {
         fetchNurseriesData()
         setUpNav()
         setupNavigationBar()
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,7 +31,11 @@ class NurseryViewController: UITableViewController {
     }
 
     func fetchNurseriesData() {
-        NetworkManager.shared.fetchNurseries { fetchedNurseries in
+        guard let token = token else {
+            return
+        }
+       
+        NetworkManager.shared.fetchNurseries(token: token){ fetchedNurseries in
             DispatchQueue.main.async {
                 self.nurseries = fetchedNurseries ?? []
                 self.tableView.reloadData()

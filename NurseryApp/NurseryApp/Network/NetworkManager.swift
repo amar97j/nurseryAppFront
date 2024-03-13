@@ -31,7 +31,7 @@ class NetworkManager {
     
     func signIn(user: User, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
         let url = baseUrl + "auth/login"
-        AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: TokenResponse.self) { response in
+        AF.request(url, method: .post,parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: TokenResponse.self) { response in
             switch response.result {
                 
             case .success(let value):
@@ -49,19 +49,33 @@ class NetworkManager {
             }
         }
     }
-        func fetchNurseries(completion: @escaping ([Nursery]?) -> Void) {
-            let endpoint = "/get_nursery"
-            AF.request(baseUrl + endpoint).responseDecodable(of: [Nursery].self) { response in
-                switch response.result {
-                case .success(let nurseries):
+    func fetchNurseries(token: String, completion: @escaping ([Nursery]?) -> Void) {
+        
+        // Passing Token inside the parameter
+        // Using token in headers
+        let url = baseUrl + "nurseries/get_nurseries"
+        
+        let headers: HTTPHeaders = ["Authorization" : "\(token)"]
+        AF.request(url, method: .get, headers: headers).validate().responseDecodable(of:[Nursery].self) { response in
+            switch response.result {
+                
+            case .success(let nurseries):
+                print(nurseries)
+//                // EXTRA LINE FOR DEBUGGING
+//                if let data = response.data, let str = String(data: data, encoding: .utf8) {
+//                    print("Raw response: \(str)")
+//                }
                     completion(nurseries)
-                case .failure(_):
-                    completion(nil)
-                }
+            case .failure(let error):
+//                if let data = response.data, let str = String(data: data, encoding: .utf8) {
+//                    print("Raw response: \(str)")
+//                }
+                print(error)
+                completion(nil)
             }
         }
+        
     }
-
     
     
     func registerChild(child: Child, completion: @escaping (Bool) -> Void) {

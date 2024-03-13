@@ -79,7 +79,7 @@ class SignInViewController: FormViewController {
                 switch result {
                 case .success(let tokenResponse):
                     print("Token:", tokenResponse.token)
-                    let registerVC = RegisterChildViewController()
+                    let registerVC = NurseryViewController()
                     registerVC.token = tokenResponse.token
                     registerVC.modalPresentationStyle = .pageSheet
                     self.present(registerVC, animated: true)
