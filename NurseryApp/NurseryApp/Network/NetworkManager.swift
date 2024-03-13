@@ -51,4 +51,20 @@ class NetworkManager {
     }
     
     
+    func registerChild(child: Child, completion: @escaping (Bool) -> Void) {
+        
+        AF.request(baseUrl + "child/register", method: .post, parameters: child, encoder: JSONParameterEncoder.default).response { response in
+            switch response.result {
+                case .success:
+                    completion(true)
+                case .failure(let error):
+                print("POST Request Error: \(error.localizedDescription)")
+                                completion(false)
+            }
+
+        }
+
+    }
+    
+    
 }

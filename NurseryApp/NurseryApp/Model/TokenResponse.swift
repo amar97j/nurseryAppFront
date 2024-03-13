@@ -9,6 +9,7 @@
 import Foundation
 
 struct TokenResponse: Codable {
+    let id: Int?
     let token: String
     let username: String
     let role: String
