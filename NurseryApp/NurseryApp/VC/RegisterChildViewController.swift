@@ -9,8 +9,8 @@ import UIKit
 import Eureka
 
 class RegisterChildViewController: FormViewController {
-//    var token: String?
     var tokenResponse: TokenResponse?
+    //    var token: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class RegisterChildViewController: FormViewController {
         <<< PickerInlineRow<String>() {
             $0.title = "Select Special Needs"
             $0.tag = tag.specialNeed.rawValue
-            $0.options = ["None", "Regular", "ADHD", "Learning Difficulties", "Bilingual"]
+            $0.options = ["Regular", "ADHD", "Learning Difficulties", "Bilingual"]
             $0.value = "None"
         }
         
@@ -70,61 +70,51 @@ class RegisterChildViewController: FormViewController {
     }
     
     func registerButtonTapped() {
-        let errors = form.validate()
+        print("Register button tapped")
         
-        guard errors.isEmpty else{
-            print(errors)
+        guard let name = (form.rowBy(tag: tag.name.rawValue) as? TextRow)?.value else {
+            print("Error: Name field is empty")
             return
         }
         
-        let nameRow: TextRow? = form.rowBy(tag: tag.name.rawValue)
-        let ageRow: TextRow? = form.rowBy(tag: tag.age.rawValue)
-        let specialNeedRow: PickerInlineRow<String> = form.rowBy(tag: tag.specialNeed.rawValue) as! PickerInlineRow<String>
+        guard let age = (form.rowBy(tag: tag.age.rawValue) as? IntRow)?.value else {
+            print("Error: Age field is empty")
+            return
+        }
         
-        let name = nameRow?.value ?? ""
-        let age = ageRow?.value ?? "" // need to convert to string
-        let specialNeedName = specialNeedRow.value ?? "None"
+        guard let specialNeedName = (form.rowBy(tag: tag.specialNeed.rawValue) as? PickerInlineRow<String>)?.value else {
+            print("Error: Special Need field is empty")
+            return
+        }
         
         let specialNeedId: Int
         switch specialNeedName {
-        case "None":
-            specialNeedId = 0 
-        case "Regular":
-            specialNeedId = 1
-        case "ADHD":
-            specialNeedId = 2
-        case "Learning Difficulties":
-            specialNeedId = 3
-        case "Bilingual":
-            specialNeedId = 4
-        default:
-            specialNeedId = 0
+        case "Regular": specialNeedId = 1
+        case "ADHD": specialNeedId = 2
+        case "Learning Difficulties": specialNeedId = 3
+        case "Bilingual": specialNeedId = 4
+        default: specialNeedId = 0
         }
         
         let specialNeedCase = ChildCaseId(id: specialNeedId, name: specialNeedName)
+        let child = Child(name: name, age: "\(age)", caseId: [specialNeedCase])
         
-        let child = Child(name: name, age: age, caseId: [specialNeedCase])
-        
-        
-        
-        
+        // Now you can call your NetworkManager function
         NetworkManager.shared.registerChild(child: child, id: (tokenResponse?.id)!) { success in
             
             // Handling Network Request
             DispatchQueue.main.async {
                 if success {
                     print("Child registration successful")
-                    self.dismiss(animated: true, completion: nil)
                     let nurseryVC = NurseryViewController()
-                    //registerVC.token = tokenResponse.token
-                    self.navigationController?.pushViewController(nurseryVC, animated: true)
+                    nurseryVC.modalPresentationStyle = .fullScreen
+                    self.present(nurseryVC, animated: true)
                 } else {
                     // Handle submission error, e.g., show an error alert
                 }
             }
             
         }
-        print("Register button tapped")
     }
     
     enum tag: String{
