@@ -21,9 +21,9 @@ class NetworkManager {
                 completion(.failure(error))
             } else {
                 // EXTRA LINE FOR DEBUGGING
-          if let data = response.data, let str = String(data: data, encoding: .utf8) {
-              print("Raw response: \(str)")
-          }
+                if let data = response.data, let str = String(data: data, encoding: .utf8) {
+                    print("Raw response: \(str)")
+                }
                 completion(.success(()))
             }
         }
@@ -49,34 +49,32 @@ class NetworkManager {
             }
         }
     }
-        func fetchNurseries(completion: @escaping ([Nursery]?) -> Void) {
-            let endpoint = "/get_nursery"
-            AF.request(baseUrl + endpoint).responseDecodable(of: [Nursery].self) { response in
-                switch response.result {
-                case .success(let nurseries):
-                    completion(nurseries)
-                case .failure(_):
-                    completion(nil)
-                }
+    func fetchNurseries(completion: @escaping ([Nursery]?) -> Void) {
+        let endpoint = "/get_nursery"
+        AF.request(baseUrl + endpoint).responseDecodable(of: [Nursery].self) { response in
+            switch response.result {
+            case .success(let nurseries):
+                completion(nurseries)
+            case .failure(_):
+                completion(nil)
             }
         }
     }
-
     
-    
-    func registerChild(child: Child, completion: @escaping (Bool) -> Void) {
+    func registerChild(child: Child, id: Int, completion: @escaping (Bool) -> Void) {
         
-        AF.request(baseUrl + "child/register", method: .post, parameters: child, encoder: JSONParameterEncoder.default).response { response in
+        AF.request(baseUrl + "child/register?userId=\(id)", method: .post, parameters: child, encoder: JSONParameterEncoder.default).response { response in
             switch response.result {
-                case .success:
-                    completion(true)
-                case .failure(let error):
+            case .success:
+                print(response.result)
+                completion(true)
+            case .failure(let error):
                 print("POST Request Error: \(error.localizedDescription)")
-                                completion(false)
+                completion(false)
             }
-
+            
         }
-
+        
     }
     
     
