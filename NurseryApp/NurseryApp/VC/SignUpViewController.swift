@@ -13,7 +13,7 @@ class SignUpViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        token = UserDefaults.standard.string(forKey: "tokenAuth")
         view.backgroundColor = .white
         setupForm()
     }

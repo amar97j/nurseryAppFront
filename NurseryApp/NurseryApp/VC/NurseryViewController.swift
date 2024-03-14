@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 
 class NurseryViewController: UITableViewController {
+    
     var nurseries: [Nursery] = []
     var favoriteStates: [Bool] = []
     var token: String?
@@ -9,6 +10,7 @@ class NurseryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(NurseryTableViewCell.self, forCellReuseIdentifier: "Cell")
+        token = UserDefaults.standard.string(forKey: "tokenAuth")
         fetchNurseriesData()
         setUpNav()
         setupNavigationBar()
@@ -41,13 +43,16 @@ class NurseryViewController: UITableViewController {
         NetworkManager.shared.fetchNurseries(token: token) { fetchedNurseries in
             DispatchQueue.main.async {
                 self.nurseries = fetchedNurseries ?? []
-                self.favoriteStates = Array(repeating: false, count: self.nurseries.count) 
+                self.favoriteStates = Array(repeating: false, count: self.nurseries.count)
                 self.tableView.reloadData()
             }
         }
     }
 
     func showNurseryDetails(for nursery: Nursery) {
+        let detailNurseryController = DetailNurseryController()
+        detailNurseryController.nursery = nursery
+        self.present(detailNurseryController, animated: true)
     }
 
     func setUpNav() {
@@ -67,8 +72,9 @@ class NurseryViewController: UITableViewController {
 
     @objc private func favoriteButtonTapped(_ sender: UIButton) {
         let index = sender.tag
-        favoriteStates[index].toggle() 
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)     }
+        favoriteStates[index].toggle()
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+    }
 
     private func setupTableView() {
         tableView.separatorStyle = .none
@@ -140,8 +146,8 @@ class NurseryTableViewCell: UITableViewCell {
 
             nurseryImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             nurseryImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            nurseryImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            nurseryImageView.widthAnchor.constraint(equalToConstant: 80), // Adjust the width here
+            nurseryImageView.widthAnchor.constraint(equalToConstant: 90),
+            nurseryImageView.heightAnchor.constraint(equalToConstant: 90),
 
             nameLabel.leadingAnchor.constraint(equalTo: nurseryImageView.trailingAnchor, constant: 16),
             nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),

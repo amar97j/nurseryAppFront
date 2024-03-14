@@ -16,7 +16,7 @@ class RegisterChildViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        token = UserDefaults.standard.string(forKey: "tokenAuth")
         self.tableView.backgroundColor = .white
         setupBackgroundImage()
         setupBlurBackground()
