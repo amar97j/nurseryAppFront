@@ -101,12 +101,11 @@ class SignUpViewController: FormViewController {
         NetworkManager.shared.signup(user: user) { success in
             DispatchQueue.main.async {
                 switch success {
-                case .success(let tokenResponse):
-                    //                   print(tokenResponse.token)
+                case .success(_):
                     
-                    let registerVC = RegisterChildViewController()
+                    let loginVC = SignInViewController()
                     //                    registerVC.token = tokenResponse.token
-                    self.navigationController?.pushViewController(registerVC, animated: true)
+                    self.navigationController?.pushViewController(loginVC, animated: true)
                     
                 case .failure(let error):
                     print(error)
