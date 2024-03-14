@@ -9,17 +9,14 @@ import UIKit
 import Eureka
 
 class RegisterChildViewController: FormViewController {
-    var token: String?
-    private var blurView: UIVisualEffectView!
-    private var imageView: UIImageView!
-    
+//    var token: String?
+    var tokenResponse: TokenResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.backgroundColor = .white
-        setupBackgroundImage()
-        setupBlurBackground()
+        
         
         form +++ Section("Child Information")
         <<< TextRow() {
@@ -34,8 +31,8 @@ class RegisterChildViewController: FormViewController {
                 }
             }
         }
-     
-      <<< IntRow() {
+        
+        <<< IntRow() {
             $0.title = "Age"
             $0.placeholder = "Enter your child's age"
             $0.tag = tag.age.rawValue
@@ -56,7 +53,7 @@ class RegisterChildViewController: FormViewController {
             $0.value = "None"
         }
         
-
+        
         +++ Section()
         <<< ButtonRow() {
             $0.title = "Register"
@@ -91,29 +88,36 @@ class RegisterChildViewController: FormViewController {
         let specialNeedId: Int
         switch specialNeedName {
         case "None":
-            specialNeedId = 0 // Set the ID for "None"
+            specialNeedId = 0 
         case "Regular":
-            specialNeedId = 1 // Set the ID for "Regular"
+            specialNeedId = 1
         case "ADHD":
-            specialNeedId = 2 // Set the ID for "ADHD"
+            specialNeedId = 2
         case "Learning Difficulties":
-            specialNeedId = 3 // Set the ID for "Learning Difficulties"
+            specialNeedId = 3
         case "Bilingual":
-            specialNeedId = 4 // Set the ID for "Bilingual"
+            specialNeedId = 4
         default:
-            specialNeedId = 0 // Set default ID if the special need is not recognized
+            specialNeedId = 0
         }
         
         let specialNeedCase = ChildCaseId(id: specialNeedId, name: specialNeedName)
         
         let child = Child(name: name, age: age, caseId: [specialNeedCase])
         
-        NetworkManager.shared.registerChild(child: child) { success in
+        
+        
+        
+        NetworkManager.shared.registerChild(child: child, id: (tokenResponse?.id)!) { success in
             
             // Handling Network Request
             DispatchQueue.main.async {
                 if success {
+                    print("Child registration successful")
                     self.dismiss(animated: true, completion: nil)
+                    let nurseryVC = NurseryViewController()
+                    //registerVC.token = tokenResponse.token
+                    self.navigationController?.pushViewController(nurseryVC, animated: true)
                 } else {
                     // Handle submission error, e.g., show an error alert
                 }
@@ -121,22 +125,6 @@ class RegisterChildViewController: FormViewController {
             
         }
         print("Register button tapped")
-    }
-    
-    private func setupBackgroundImage() {
-        imageView = UIImageView(image: UIImage(named: "nursery"))
-        imageView.frame = view.bounds
-        imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(imageView)
-        view.sendSubviewToBack(imageView)
-    }
-    
-    private func setupBlurBackground() {
-        let blurEffect = UIBlurEffect(style: .regular)
-        blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = view.bounds
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.insertSubview(blurView, belowSubview: imageView) 
     }
     
     enum tag: String{
