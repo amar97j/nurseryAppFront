@@ -3,6 +3,8 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    
+    
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "nursery")
@@ -30,10 +32,12 @@ class ViewController: UIViewController {
     
     let topLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome to NURSERIA"
-        label.textColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
+//        label.text = "Welcome to NURSERIA"
+        label.text = "Nurseria"
+        label.textColor = #colorLiteral(red: 0.6488326192, green: 0.5253301263, blue: 0.7380740047, alpha: 1)
+        label.font = UIFont.systemFont(ofSize: 33, weight: .bold)
         label.textAlignment = .center
+        label.numberOfLines = 2
         return label
     }()
     
@@ -49,9 +53,10 @@ class ViewController: UIViewController {
     let signInButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sign In", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0, green: 0.8369514942, blue: 1, alpha: 1)
-        button.layer.cornerRadius = 20
+        button.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         return button
     }()

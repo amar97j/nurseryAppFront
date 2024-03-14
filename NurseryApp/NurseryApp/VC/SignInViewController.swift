@@ -15,7 +15,8 @@ class SignInViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        token = UserDefaults.standard.string(forKey: "tokenAuth")
+    
         view.backgroundColor = .white
         setupForm()
     }
@@ -79,10 +80,12 @@ class SignInViewController: FormViewController {
                 switch result {
                 case .success(let tokenResponse):
                     print("Token:", tokenResponse.token)
-                    let nureseryList = NurseryViewController()
-                    nureseryList.token = tokenResponse.token
-                    nureseryList.modalPresentationStyle = .fullScreen
-                    self.present(nureseryList, animated: true)
+                    let tabBarVC = MainTabBarController()
+                    tabBarVC.user = user
+                    let defaults = UserDefaults.standard
+                    defaults.set(tokenResponse.token, forKey: "tokenAuth")
+                    tabBarVC.modalPresentationStyle = .fullScreen
+                    self.present(tabBarVC, animated: true)
                 case .failure(let error):
                     print("Error:", error)
                     print(error.localizedDescription)
