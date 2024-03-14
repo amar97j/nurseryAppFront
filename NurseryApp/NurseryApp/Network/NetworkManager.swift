@@ -31,7 +31,7 @@ class NetworkManager {
     
     func signIn(user: User, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
         let url = baseUrl + "auth/login"
-        AF.request(url, method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: TokenResponse.self) { response in
+        AF.request(url, method: .post,parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: TokenResponse.self) { response in
             switch response.result {
                 
             case .success(let value):
@@ -49,17 +49,29 @@ class NetworkManager {
             }
         }
     }
-    func fetchNurseries(completion: @escaping ([Nursery]?) -> Void) {
-        let endpoint = "/get_nursery"
-        AF.request(baseUrl + endpoint).responseDecodable(of: [Nursery].self) { response in
+
+    func fetchNurseries(token: String, completion: @escaping ([Nursery]?) -> Void) {
+        
+       
+        let url = baseUrl + "nurseries/get_nurseries"
+        let headers: HTTPHeaders = ["Authorization" : "\(token)"]
+        
+        AF.request(url, method: .get, headers: headers).validate().responseDecodable(of:[Nursery].self) { response in
             switch response.result {
+                
             case .success(let nurseries):
-                completion(nurseries)
-            case .failure(_):
+                print(nurseries)
+
+                    completion(nurseries)
+            case .failure(let error):
+
+                print(error)
                 completion(nil)
             }
         }
+        
     }
+
     
     func registerChild(child: Child, id: Int, completion: @escaping (Bool) -> Void) {
         

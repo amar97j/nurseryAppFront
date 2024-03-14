@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     let topLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome to NURSERIA"
-        label.textColor = UIColor(red: 41/255, green: 128/255, blue: 185/255, alpha: 1.0)
+        label.textColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textAlignment = .center
         return label
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1.0)
+        button.backgroundColor = #colorLiteral(red: 0, green: 0.8369514942, blue: 1, alpha: 1)
         button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         return button
