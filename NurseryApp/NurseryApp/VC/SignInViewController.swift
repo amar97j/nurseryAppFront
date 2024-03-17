@@ -16,7 +16,7 @@ class SignInViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         token = UserDefaults.standard.string(forKey: "tokenAuth")
-    
+        
         view.backgroundColor = .white
         setupForm()
     }
@@ -73,19 +73,24 @@ class SignInViewController: FormViewController {
         let username = usernameRow.value ?? ""
         let password = passwordRow.value ?? ""
         
-        let user = User(name: "", username: username, email: "", password: password)
+        let user = User(id: nil, name: "", username: username, email: "", password: password)
         
         NetworkManager.shared.signIn(user: user) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let tokenResponse):
                     print("Token:", tokenResponse.token)
+                    
+                    // new code
                     let tabBarVC = MainTabBarController()
-                    tabBarVC.user = user
+                    tabBarVC.user = tokenResponse
                     let defaults = UserDefaults.standard
                     defaults.set(tokenResponse.token, forKey: "tokenAuth")
+                    defaults.set(tokenResponse.id, forKey: "userID")
+                    defaults.set(tokenResponse.username, forKey: "username")
+                    defaults.set(tokenResponse.role, forKey: "role")
                     tabBarVC.modalPresentationStyle = .fullScreen
-                    self.present(tabBarVC, animated: true)
+                    self.present(tabBarVC, animated: true)                    
                 case .failure(let error):
                     print("Error:", error)
                     print(error.localizedDescription)

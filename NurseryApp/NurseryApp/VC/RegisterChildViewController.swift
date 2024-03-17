@@ -1,22 +1,16 @@
-//
-//  RegisterChildViewController.swift
-//  NurseryApp
-//
-//  Created by Abdullah Bin Essa on 3/11/24.
-//
 
 import UIKit
 import Eureka
 
 class RegisterChildViewController: FormViewController {
-//    var token: String?
+    var token: String?
     var tokenResponse: TokenResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         token = UserDefaults.standard.string(forKey: "tokenAuth")
-        self.tableView.backgroundColor = .white
         
+        self.tableView.backgroundColor = .white
         
         form +++ Section("Child Information")
         <<< TextRow() {
@@ -32,7 +26,7 @@ class RegisterChildViewController: FormViewController {
             }
         }
         
-        <<< IntRow() {
+        <<< TextRow() {
             $0.title = "Age"
             $0.placeholder = "Enter your child's age"
             $0.tag = tag.age.rawValue
@@ -53,7 +47,6 @@ class RegisterChildViewController: FormViewController {
             $0.value = "None"
         }
         
-        
         +++ Section()
         <<< ButtonRow() {
             $0.title = "Register"
@@ -70,66 +63,41 @@ class RegisterChildViewController: FormViewController {
     }
     
     func registerButtonTapped() {
-        let errors = form.validate()
-        
-        guard errors.isEmpty else{
-            print(errors)
-            return
-        }
-        
         let nameRow: TextRow? = form.rowBy(tag: tag.name.rawValue)
         let ageRow: TextRow? = form.rowBy(tag: tag.age.rawValue)
         let specialNeedRow: PickerInlineRow<String> = form.rowBy(tag: tag.specialNeed.rawValue) as! PickerInlineRow<String>
         
-        let name = nameRow?.value ?? ""
-        let age = ageRow?.value ?? "" // need to convert to string
+        guard let name = nameRow?.value, !name.isEmpty else {
+            displayErrorMessage(message: "Please fill all the fields")
+            return
+        }
+        
+        guard let age = ageRow?.value, !age.isEmpty else {
+            displayErrorMessage(message: "Please fill all the fields")
+            return
+        }
+        
         let specialNeedName = specialNeedRow.value ?? "None"
         
-        let specialNeedId: Int
-        switch specialNeedName {
-        case "None":
-            specialNeedId = 0 
-        case "Regular":
-            specialNeedId = 1
-        case "ADHD":
-            specialNeedId = 2
-        case "Learning Difficulties":
-            specialNeedId = 3
-        case "Bilingual":
-            specialNeedId = 4
-        default:
-            specialNeedId = 0
-        }
-        
-        let specialNeedCase = ChildCaseId(id: specialNeedId, name: specialNeedName)
-        
-        let child = Child(name: name, age: age, caseId: [specialNeedCase])
-        
-        
-        
-        
-        NetworkManager.shared.registerChild(child: child, id: (tokenResponse?.id)!) { success in
-            
-            // Handling Network Request
-            DispatchQueue.main.async {
-                if success {
-                    print("Child registration successful")
-                    self.dismiss(animated: true, completion: nil)
-                    let nurseryVC = NurseryViewController()
-                    //registerVC.token = tokenResponse.token
-                    self.navigationController?.pushViewController(nurseryVC, animated: true)
-                } else {
-                    // Handle submission error, e.g., show an error alert
-                }
-            }
-            
-        }
-        print("Register button tapped")
+       
+        displaySuccessMessage()
     }
     
-    enum tag: String{
-        case name
-        case age
-        case specialNeed
+    func displayErrorMessage(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
+    
+    func displaySuccessMessage() {
+        let alertController = UIAlertController(title: "Success", message: "Registration Successful!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+enum tag: String {
+    case name
+    case age
+    case specialNeed
 }

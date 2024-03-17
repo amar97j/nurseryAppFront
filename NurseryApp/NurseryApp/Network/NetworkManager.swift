@@ -49,10 +49,10 @@ class NetworkManager {
             }
         }
     }
-
+    
     func fetchNurseries(token: String, completion: @escaping ([Nursery]?) -> Void) {
         
-       
+        
         let url = baseUrl + "nurseries/get_nurseries"
         let headers: HTTPHeaders = ["Authorization" : "\(token)"]
         
@@ -61,21 +61,23 @@ class NetworkManager {
                 
             case .success(let nurseries):
                 print(nurseries)
-
-                    completion(nurseries)
+                
+                completion(nurseries)
             case .failure(let error):
-
+                
                 print(error)
                 completion(nil)
             }
         }
         
     }
-
     
-    func registerChild(child: Child, id: Int, completion: @escaping (Bool) -> Void) {
+    
+    func registerChild(token: String, child: Child, id: Int, completion: @escaping (Bool) -> Void) {
+        let headers: HTTPHeaders = ["Authorization" : "\(token)"]
         
-        AF.request(baseUrl + "child/register?userId=\(id)", method: .post, parameters: child, encoder: JSONParameterEncoder.default).response { response in
+        AF.request(baseUrl + "child/register?userId=\(id)", method: .post, parameters: child, encoder: JSONParameterEncoder.default, headers: headers).response { response in
+            
             switch response.result {
             case .success:
                 print(response.result)
@@ -88,6 +90,40 @@ class NetworkManager {
         }
         
     }
+    func fetchChildEnrollments(userId: Int, childId: Int, completion: @escaping (Result<[EnrollmentResponse], Error>) -> Void) {
+        let url = baseUrl + "enroll/get_child_enrollment?userId=\(userId)&childId=\(childId)"
+        AF.request(url, method: .get).validate().responseDecodable(of: [EnrollmentResponse].self) { response in
+            switch response.result {
+            case .success(let enrollments):
+                completion(.success(enrollments))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func fetchChildInfo(token:String ,userId: Int, completion: @escaping (Result<[Child], Error>) -> Void) {
+        let headers: HTTPHeaders = ["Authorization" : "\(token)"]
+        let url = baseUrl + "child/\(userId)"
+        
+        AF.request(url, method: .get).validate().responseDecodable(of: [Child].self) { response in
+            switch response.result {
+            case .success(let enrollments):
+                // EXTRA LINE FOR DEBUGGING
+                if let data = response.data, let str = String(data: data, encoding: .utf8) {
+                    print("Raw response: \(str)")
+                }
+                completion(.success(enrollments))
+            case .failure(let error):
+                // EXTRA LINE FOR DEBUGGING
+                if let data = response.data, let str = String(data: data, encoding: .utf8) {
+                    print("Raw response: \(str)")
+                }
+                completion(.failure(error))
+            }
+        }
+    }
+    
     
     
 }

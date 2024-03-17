@@ -96,17 +96,15 @@ class SignUpViewController: FormViewController {
         let password = passwordRow.value ?? ""
         let email = emailRow.value ?? ""
         
-        let user = User(name: name, username: username, email: email, password: password)
+        let user = User(id: nil, name: name, username: username, email: email, password: password)
         
         NetworkManager.shared.signup(user: user) { success in
             DispatchQueue.main.async {
                 switch success {
                 case .success(let tokenResponse):
-                    //                   print(tokenResponse.token)
                     
-                    let registerVC = RegisterChildViewController()
-                    //                    registerVC.token = tokenResponse.token
-                    self.navigationController?.pushViewController(registerVC, animated: true)
+                    let signinVC = SignInViewController( )
+                    self.navigationController?.pushViewController(signinVC, animated: true)
                     
                 case .failure(let error):
                     print(error)

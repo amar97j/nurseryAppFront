@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     }()
     
     let blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .extraLight)
         let blurView = UIVisualEffectView(effect: blurEffect)
         return blurView
     }()
@@ -32,7 +32,6 @@ class ViewController: UIViewController {
     
     let topLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Welcome to NURSERIA"
         label.text = "Nurseria"
         label.textColor = #colorLiteral(red: 0.6488326192, green: 0.5253301263, blue: 0.7380740047, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 33, weight: .bold)
@@ -74,6 +73,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
     }
     
     private func configureUI() {
@@ -151,4 +151,5 @@ class ViewController: UIViewController {
         let signUpViewController = SignUpViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
+    
 }

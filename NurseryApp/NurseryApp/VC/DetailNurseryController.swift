@@ -8,7 +8,7 @@ class DetailNurseryController: UIViewController {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AvenirNext-Bold", size: 28)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 25)
         label.textColor = UIColor.black
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -19,8 +19,8 @@ class DetailNurseryController: UIViewController {
         let label = UILabel()
         label.font = UIFont(name: "AvenirNext-Regular", size: 18)
         label.textColor = UIColor.darkGray
-        label.textAlignment = .center
-        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.numberOfLines = 1
         return label
     }()
     
@@ -45,9 +45,9 @@ class DetailNurseryController: UIViewController {
     let enrollButton: UIButton = {
         let button = UIButton()
         button.setTitle("Enroll", for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 25
+        button.layer.cornerRadius = 10
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 2)
         button.layer.shadowOpacity = 0.3
@@ -75,8 +75,8 @@ class DetailNurseryController: UIViewController {
         imageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.8)
-            make.height.equalTo(imageView.snp.width).multipliedBy(0.7)
+            make.width.equalTo(150)
+            make.height.equalTo(150)
         }
         
         let stackView = UIStackView()
@@ -110,19 +110,18 @@ class DetailNurseryController: UIViewController {
         
         nameLabel.text = nursery.name
         locationLabel.text = "Location: \(nursery.location)"
-        detailLabel.text = "Detail: \(nursery.details)"
+        detailLabel.text = " \(nursery.details)"
+        detailLabel.numberOfLines = 20
     }
     
     private func applyStyling() {
         nameLabel.textColor = .black
         locationLabel.textColor = .darkGray
         detailLabel.textColor = .darkGray
-        
         enrollButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
     @objc private func enrollButtonTapped() {
-        let enrollmentViewController = EnrollmentViewController()
-        self.present(enrollmentViewController, animated: true)
+        enrollButton.backgroundColor = .green
     }
 }

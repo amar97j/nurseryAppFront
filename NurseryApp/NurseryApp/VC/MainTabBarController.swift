@@ -1,30 +1,35 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
+    
     
     var token: String?
-    var user: User?
+    var user: TokenResponse?
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewControllers()
         customizeTabBar()
         token = UserDefaults.standard.string(forKey: "tokenAuth")
-
+        
+        
+        
     }
-
+    
     func setupViewControllers() {
-        let firstViewController = NurseryViewController()
+        let firstViewController = UINavigationController(rootViewController: NurseryViewController())
         firstViewController.tabBarItem = UITabBarItem(title: "Nurseries", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-
-        let secondViewController = RegisterChildViewController()
-        secondViewController.tabBarItem = UITabBarItem(title: "Register", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        
+        let secondViewController =  UINavigationController(rootViewController: ChildViewController())
+        secondViewController.tabBarItem = UITabBarItem(title: "Child", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        
+        
         
         let ThirdViewController = EnrollmentViewController()
         ThirdViewController.tabBarItem = UITabBarItem(title: "Enrollment", image: UIImage(systemName: "envelope"), selectedImage: UIImage(systemName: "envelope.fill"))
-
+        
         viewControllers = [firstViewController, secondViewController,ThirdViewController]
     }
     
@@ -44,10 +49,9 @@ class MainTabBarController: UITabBarController {
         
         self.navigationController?.pushViewController(nurseryVC, animated: true)
     }
-        
-        
-        
-    }
-
-   
-
+    
+    
+    
+    
+    
+}

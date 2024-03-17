@@ -28,8 +28,10 @@
 		4165EB112B9F1ACB00C494DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4165EB102B9F1ACB00C494DD /* Kingfisher */; };
 		4165EB132B9F1B1400C494DD /* RegisterChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */; };
 		AE971CFA2BA1C68E00B9A6CB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE971CF92BA1C68E00B9A6CB /* MainTabBarController.swift */; };
-		AE9745DF2BA2FABE00AC665A /* DetailsNurseryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9745DE2BA2FABE00AC665A /* DetailsNurseryViewController.swift */; };
+		AE9745DF2BA2FABE00AC665A /* DetailNurseryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9745DE2BA2FABE00AC665A /* DetailNurseryController.swift */; };
 		AE9745E12BA30E3600AC665A /* EnrollmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9745E02BA30E3600AC665A /* EnrollmentViewController.swift */; };
+		AE9745E32BA5064100AC665A /* EnrollmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9745E22BA5064100AC665A /* EnrollmentResponse.swift */; };
+		AE9745E52BA6C3F700AC665A /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9745E42BA6C3F700AC665A /* ChildViewController.swift */; };
 		AEB51CDC2BA2DB0600D4C607 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB51CDB2BA2DB0600D4C607 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,8 +53,10 @@
 		09EF8C902BA195120036BD01 /* Nursery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nursery.swift; sourceTree = "<group>"; };
 		4165EB122B9F1B1400C494DD /* RegisterChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterChildViewController.swift; sourceTree = "<group>"; };
 		AE971CF92BA1C68E00B9A6CB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		AE9745DE2BA2FABE00AC665A /* DetailsNurseryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsNurseryViewController.swift; sourceTree = "<group>"; };
+		AE9745DE2BA2FABE00AC665A /* DetailNurseryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNurseryController.swift; sourceTree = "<group>"; };
 		AE9745E02BA30E3600AC665A /* EnrollmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollmentViewController.swift; sourceTree = "<group>"; };
+		AE9745E22BA5064100AC665A /* EnrollmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollmentResponse.swift; sourceTree = "<group>"; };
+		AE9745E42BA6C3F700AC665A /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		AEB51CDB2BA2DB0600D4C607 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 				09D1D0EC2B9F14BC00091D7E /* TokenResponse.swift */,
 				09D1D0ED2B9F14BC00091D7E /* User.swift */,
 				09EF8C902BA195120036BD01 /* Nursery.swift */,
+				AE9745E22BA5064100AC665A /* EnrollmentResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,8 +137,9 @@
 				09EF8C8E2BA194DA0036BD01 /* NurseryViewController.swift */,
 				AE971CF92BA1C68E00B9A6CB /* MainTabBarController.swift */,
 				AEB51CDB2BA2DB0600D4C607 /* ProfileViewController.swift */,
-				AE9745DE2BA2FABE00AC665A /* DetailsNurseryViewController.swift */,
+				AE9745DE2BA2FABE00AC665A /* DetailNurseryController.swift */,
 				AE9745E02BA30E3600AC665A /* EnrollmentViewController.swift */,
+				AE9745E42BA6C3F700AC665A /* ChildViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -240,10 +246,12 @@
 				4165EB132B9F1B1400C494DD /* RegisterChildViewController.swift in Sources */,
 				09D1D0C92B9F144700091D7E /* AppDelegate.swift in Sources */,
 				AE9745E12BA30E3600AC665A /* EnrollmentViewController.swift in Sources */,
+				AE9745E32BA5064100AC665A /* EnrollmentResponse.swift in Sources */,
 				AE971CFA2BA1C68E00B9A6CB /* MainTabBarController.swift in Sources */,
+				AE9745E52BA6C3F700AC665A /* ChildViewController.swift in Sources */,
 				09D1D0F92B9F14BC00091D7E /* SignUpViewController.swift in Sources */,
 				09EF8C8F2BA194DA0036BD01 /* NurseryViewController.swift in Sources */,
-				AE9745DF2BA2FABE00AC665A /* DetailsNurseryViewController.swift in Sources */,
+				AE9745DF2BA2FABE00AC665A /* DetailNurseryController.swift in Sources */,
 				09D1D0F62B9F14BC00091D7E /* User.swift in Sources */,
 				09EF8C8D2BA049B40036BD01 /* Child.swift in Sources */,
 				09D1D0CB2B9F144700091D7E /* SceneDelegate.swift in Sources */,
